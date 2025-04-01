@@ -384,16 +384,17 @@
 			title: 'Work',
 			data: [
 				{
-					name: 'REMISYS 瑞明系統科技',
-					description: ' 外派機器人講師、機器人研發工程師、機器人維修工程師'
+					name: 'REMISYS',
+					description:
+						'Robotics Instructor, Robotics Research Engineer, Robotics Maintenance Engineer'
 				},
 				{
-					name: 'Bidbuy4u 樂高必買站',
-					description: 'EV3樂高機器人講師'
+					name: 'Bidbuy4u',
+					description: 'EV3 LEGO Robotics Instructor'
 				},
 				{
 					name: 'Photon Future 光速未來有限公司',
-					description: '前端工程師'
+					description: 'Front-end Engineer'
 				}
 			]
 		},
@@ -409,15 +410,14 @@
 	<meta name="description" content="Allen's website" />
 </svelte:head>
 
-<section class="flex flex-row justify-start items-center p-0 m-0 h-screen">
-	<aside class="about">
-		<picture>
-			<!-- <source srcset={welcome} type="image/webp" /> -->
+<section class="flex flex-row flex-wrap justify-start items-center p-0 m-0 h-screen sm:flex-nowrap">
+	<aside class="flex w-1/2 h-auto sm:1/2">
+		<picture class="w-full h-auto sm:w-[60%]">
 			<img src={me} alt="me" />
 		</picture>
 	</aside>
-	<article class="w-2/3">
-		<h1 class="text-xl font-bold">Hey, this is Allen</h1>
+	<article class="w-full sm:w-2/3">
+		<h1 class="text-[32px] font-bold sm:text-xl">Hey, this is Allen</h1>
 		I'm a college student and I love adventure, computer science, music, and photography.
 	</article>
 </section>
@@ -443,11 +443,13 @@
 <section>
 	<h1 class="mb-5 text-[40px]">Experiences</h1>
 	<article>
-		<section class="space-y-10">
-			<div class="grid grid-cols-[max-content_1px_1fr] gap-10 items-start">
+		<section>
+			<div
+				class="grid grid-row-[max-content_1px_1fr] gap-5 items-start sm:grid-cols-[max-content_1px_1fr] sm:gap-10"
+			>
 				{#each Experiences as { title, data }}
 					<h1 class="text-2xl font-bold">{title}</h1>
-					<Separator orientation="vertical" class="h-full" />
+					<Separator class="h-full sm:block hidden sm:orientation-horizontal" />
 					<article class="flex flex-col gap-5">
 						{#each data as { name, description }}
 							<div class="flex flex-col gap-2">
@@ -523,16 +525,3 @@
 		</section>
 	</article>
 </section>
-
-<style>
-	.about {
-		display: flex;
-		width: 50%;
-		height: auto;
-	}
-
-	.about img {
-		width: 70%;
-		height: auto;
-	}
-</style>

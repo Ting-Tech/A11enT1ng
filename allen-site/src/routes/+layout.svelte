@@ -22,7 +22,9 @@
 	.app {
 		display: flex;
 		flex-direction: column;
-		min-height: 100vh;
+		min-height: 667px;
+		min-width: 375px;
+		overflow: scroll;
 	}
 
 	main {
