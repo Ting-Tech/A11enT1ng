@@ -384,16 +384,16 @@
 			title: 'Work',
 			data: [
 				{
-					name: 'REMISYS 瑞明系統科技 外派機器人講師、機器人研發工程師、機器人維修工程師',
-					description: ''
+					name: 'REMISYS 瑞明系統科技',
+					description: ' 外派機器人講師、機器人研發工程師、機器人維修工程師'
 				},
 				{
-					name: 'Bidbuy4u 樂高必買站 EV3樂高機器人講師',
-					description: ''
+					name: 'Bidbuy4u 樂高必買站',
+					description: 'EV3樂高機器人講師'
 				},
 				{
-					name: 'Photon Future 光速未來有限公司 前端工程師',
-					description: ''
+					name: 'Photon Future 光速未來有限公司',
+					description: '前端工程師'
 				}
 			]
 		},
@@ -409,15 +409,15 @@
 	<meta name="description" content="Allen's website" />
 </svelte:head>
 
-<section class="flex flex-row justify-between items-center p-0 m-0 h-screen">
+<section class="flex flex-row justify-start items-center p-0 m-0 h-screen">
 	<aside class="about">
 		<picture>
 			<!-- <source srcset={welcome} type="image/webp" /> -->
 			<img src={me} alt="me" />
 		</picture>
 	</aside>
-	<article class="w-1/2">
-		<h1 class="text-xl font-bold">Hi, my name is Allen.</h1>
+	<article class="w-2/3">
+		<h1 class="text-xl font-bold">Hey, this is Allen</h1>
 		I'm a college student and I love adventure, computer science, music, and photography.
 	</article>
 </section>
@@ -425,9 +425,9 @@
 <section>
 	<h1 class="mb-5 text-[40px]">Skills & Interests</h1>
 	<article>
-		<section class="flex flex-col gap-2">
+		<section class="flex flex-col gap-4">
 			{#each skills as { title, data }}
-				<h1>
+				<h1 class="text-xl">
 					{title}
 					<article class="flex flex-row gap-2 flex-wrap">
 						{#each data as { name, src }}
@@ -450,8 +450,8 @@
 					<Separator orientation="vertical" class="h-full" />
 					<article class="flex flex-col gap-5">
 						{#each data as { name, description }}
-							<div>
-								<h2 class="font-bold">{name}</h2>
+							<div class="flex flex-col gap-2">
+								<h2>{name}</h2>
 								{#if description}
 									<p>{description}</p>
 								{/if}
@@ -527,12 +527,12 @@
 <style>
 	.about {
 		display: flex;
-		width: 80%;
+		width: 50%;
 		height: auto;
 	}
 
 	.about img {
-		width: 100%;
+		width: 70%;
 		height: auto;
 	}
 </style>
