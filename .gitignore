@@ -1,5 +1,7 @@
 node_modules
 
+*.DS_Store
+
 # Output
 .output
 .vercel
@@ -9,7 +11,6 @@ node_modules
 /build
 
 # OS
-.DS_Store
 Thumbs.db
 
 # Env
