@@ -10,7 +10,8 @@
 		Mail,
 		Send,
 		Facebook,
-		Instagram
+		Instagram,
+		Linkedin
 	} from 'lucide-svelte';
 
 	const skills = [
@@ -521,6 +522,10 @@
 			>
 				<Instagram strokeWidth={1} class="h-10 w-10" />
 				allen_ting.0523
+			</a>
+			<a class="flex flex-row items-center gap-2" href="https://www.linkedin.com/in/allen523">
+				<Linkedin strokeWidth={1} class="h-10 w-10" />
+				鄭健廷(Allen)
 			</a>
 		</section>
 	</article>
