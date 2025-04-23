@@ -11,8 +11,12 @@
 		Send,
 		Facebook,
 		Instagram,
-		Linkedin
+		Linkedin,
+		ArrowDown
 	} from 'lucide-svelte';
+	import ScrollHint from '$lib/components/scrollHint.svelte';
+	import { writable } from 'svelte/store';
+	import { onMount } from 'svelte';
 
 	const skills = [
 		{
@@ -404,26 +408,77 @@
 			data: [{ name: 'Studying in NTUST', description: '' }]
 		}
 	];
+
+	const visible = writable(true);
+
+	onMount(() => {
+    const targetHomePage = document.getElementById('homepage');
+	if (!targetHomePage) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          visible.set(entry.isIntersecting);
+        });
+      },
+      { threshold: 0.85 }
+    );
+
+    observer.observe(targetHomePage);
+
+    return () => {
+      observer.disconnect();
+    };
+  });
 </script>
+
+<style>
+    .scroll-icon {
+      position: fixed;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 2rem;
+      cursor: pointer;
+      animation: bounce 1.5s infinite;
+      color: #999;
+    }
+  
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateX(-50%) translateY(0);
+      }
+      50% {
+        transform: translateX(-50%) translateY(10px);
+      }
+    }
+</style>
 
 <svelte:head>
 	<title>About Me</title>
 	<meta name="description" content="Allen's website" />
 </svelte:head>
 
-<section class="flex flex-row flex-wrap justify-start items-center p-0 m-0 h-screen sm:flex-nowrap">
-	<aside class="flex w-1/2 h-auto sm:1/2">
-		<picture class="w-full h-auto sm:w-[60%]">
-			<img src={me} alt="me" />
-		</picture>
-	</aside>
-	<article class="w-full sm:w-2/3">
-		<h1 class="text-[32px] font-bold sm:text-xl">Hey, this is Allen</h1>
-		I'm a college student and I love adventure, computer science, music, and photography.
-	</article>
+<section id="homepage">
+		<div class="flex flex-row flex-wrap justify-start items-center pb-24 m-0 h-screen sm:p-0 sm:flex-nowrap">
+			<aside class="flex w-1/2 h-auto sm:1/2">
+				<picture class="w-full h-auto sm:w-[60%]">
+					<img src={me} alt="me" />
+				</picture>
+			</aside>
+			<article class="w-full sm:w-2/3">
+				<h1 class="text-[32px] font-bold sm:text-xl">Hey, this is Allen</h1>
+				I'm a college student and I love adventure, computer science, music, and photography.
+			</article>
+		</div>
+		{#if $visible}
+		<i class="scroll-icon">
+			<ArrowDown />
+		</i>
+		{/if}
 </section>
 
-<section>
+<section id="experiences">
 	<h1 class="mb-5 text-[40px]">Skills & Interests</h1>
 	<article>
 		<section class="flex flex-col gap-4">
