@@ -14,7 +14,6 @@
 		Linkedin,
 		ArrowDown
 	} from 'lucide-svelte';
-	import ScrollHint from '$lib/components/scrollHint.svelte';
 	import { writable } from 'svelte/store';
 	import { onMount } from 'svelte';
 
